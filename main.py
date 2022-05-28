@@ -11,13 +11,12 @@ class GUI:
         self.c = c
 
     def select(self):
-        self.img_path = filedialog.askopenfilename(initialdir=os.getcwd()) 
+        self.img_path = filedialog.askopenfilename(initialdir=os.getcwd())
         self.image = Image.open(self.img_path)
         self.image.thumbnail((550, 600))
         self.img = ImageTk.PhotoImage(self.image)
         self.c.create_image(550, 350, image=self.img)
-        self.c.image=self.img
-    
+        self.c.image = self.img
 
     def filterPhoto(self, filter):
         filter = filters.get()
@@ -25,7 +24,6 @@ class GUI:
         self.img = ImageTk.PhotoImage(self.image)
         self.c.create_image(550, 350, image=self.img)
         self.c.image = self.image
-
 
     def resizePhoto(self, size):
         size = resizing.get()
@@ -35,14 +33,12 @@ class GUI:
         self.c.create_image(550, 350, image=self.img)
         self.c.image = self.image
 
-
     def waterMark(self):
         text = str(entry_text.get())
         self.image = photoEdition.waterMark(self.image, text)
         self.img = ImageTk.PhotoImage(self.image)
         self.c.create_image(550, 350, image=self.img)
         self.c.image = self.image
-
 
     def rotatePhoto(self, angle):
         rotate = int(rotation.get())
@@ -56,7 +52,6 @@ class GUI:
         complete_name = os.path.join('./images', filename+'.png')
         self.image.save(complete_name)
 
- 
 
 tk = Tk()
 tk.geometry("900x700")
@@ -75,7 +70,7 @@ rotation.bind("<<ComboboxSelected>>", g.rotatePhoto)
 
 waterMark = Label(tk, text='WaterMark: ', font=("ariel 17 bold"))
 waterMark.place(x=245, y=65)
-entry_text = Entry (tk, width=25) 
+entry_text = Entry(tk, width=25)
 entry_text.place(x=380, y=73)
 button1 = Button(text='Print', font=('underline'), relief=RAISED, command=g.waterMark)
 button1.place(x=535, y=65)
@@ -90,7 +85,7 @@ resizing.place(x=725, y=14)
 filter = Label(tk, text="Filter:", font=("ariel 17 bold"))
 filter.place(x=245, y=10)
 f = ['BLUR', 'CONTOUR', 'DETAIL', 'EMBOSS', 'EDGE_ENHANCE_MORE', 'FIND_EDGES', 'SHARPEN', 'SMOOTH']
-filters = ttk.Combobox(tk, width=23,values=f, font=("italic"))
+filters = ttk.Combobox(tk, width=23, values=f, font=("italic"))
 filters.bind("<<ComboboxSelected>>", g.filterPhoto)
 filters.place(x=320, y=14)
 
@@ -99,7 +94,7 @@ select.place(x=5, y=240)
 
 entryName = Label(tk, text='Save as: ', font=("ariel 12 bold"))
 entryName.place(x=1, y=297)
-entryFileName = Entry (tk, width=25) 
+entryFileName = Entry(tk, width=25)
 entryFileName.place(x=71, y=300)
 save = Button(tk, text='Save', width=19, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=g.save)
 save.place(x=5, y=320)
@@ -108,7 +103,7 @@ exit = Button(tk, text='Exit', width=19, bg='SILVER', fg='BLUE', font=('underlin
 exit.place(x=5, y=370)
 
 img = ImageTk.PhotoImage(Image.open("font/logo.jpg"))
-logo = Label(tk ,image=img)
+logo = Label(tk, image=img)
 logo.place(x=0, y=0)
 
 tk.mainloop()
