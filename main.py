@@ -5,6 +5,7 @@ from PIL import ImageTk, Image
 import os
 import photoEdition
 
+
 class GUI:
     def __init__(self, c, tk):
         self.c = c
@@ -55,7 +56,7 @@ class GUI:
         img = ImageTk.PhotoImage(Image.open("font/logo.jpg"))
         self.logo = Label(self.tk, image=img)
         self.logo.place(x=0, y=0)
-        
+
         self.tk.mainloop()
 
     def __select(self):
@@ -109,4 +110,3 @@ c.pack()
 
 g = GUI(c, tk)
 g.main()
-
