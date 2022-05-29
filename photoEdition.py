@@ -43,7 +43,7 @@ def waterMark(photo, waterMark):
 
     draw = ImageDraw.Draw(photo)
     text = waterMark
-    font = ImageFont.truetype("arial.ttf", 82)
+    font = ImageFont.truetype("font/Koulen-Regular.ttf", 82)
 
     textwidth, textheight = draw.textsize(text, font)
 
