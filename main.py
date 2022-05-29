@@ -5,7 +5,6 @@ from PIL import ImageTk, Image
 import os
 import photoEdition
 
-
 class GUI:
     def __init__(self, c, tk):
         self.c = c
@@ -110,3 +109,4 @@ c.pack()
 
 g = GUI(c, tk)
 g.main()
+

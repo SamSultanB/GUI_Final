@@ -52,7 +52,6 @@ def waterMark(photo, waterMark):
     y = height - textheight - margin
 
     draw.text((x, y), text, fill=(0, 0, 255), font=font)
-
     return photo
 
 
