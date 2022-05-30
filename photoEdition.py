@@ -56,16 +56,5 @@ def waterMark(photo, waterMark):
 
 
 def rotate(photo, angle):
-    if angle == 0:
-        im = photo.rotate(0)
-    elif angle == 45:
-        im = photo.rotate(45)
-    elif angle == 90:
-        im = photo.rotate(90)
-    elif angle == 180:
-        im = photo.rotate(180)
-    elif angle == 270:
-        im = photo.rotate(270)
-    elif angle == 360:
-        im = photo.rotate(360)
+    im = photo.rotate(angle)
     return im
