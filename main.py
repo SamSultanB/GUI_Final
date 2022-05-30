@@ -14,7 +14,7 @@ class GUI:
     def main(self):
         self.rotate = Label(self.tk, text='Rotate: ', bg='PINK', font=("ariel 17 bold"))
         self.rotate.place(x=630, y=65)
-        angles = [0, 45, 90, 180, 270, 360]
+        angles = [0, 5, 10, 15, 45, 90, 180]
         self.rotation = ttk.Combobox(self.tk, width=13, values=angles, font=('italic'))
         self.rotation.place(x=725, y=67)
         self.rotation.bind("<<ComboboxSelected>>", self.__rotatePhoto)
@@ -40,17 +40,17 @@ class GUI:
         self.filters.bind("<<ComboboxSelected>>", self.__filterPhoto)
         self.filters.place(x=320, y=14)
 
-        self.select = Button(self.tk, text='Select image', width=23, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.__select)
+        self.select = Button(self.tk, text='Select image', width=19, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.__select)
         self.select.place(x=5, y=240)
 
         self.entryName = Label(self.tk, text='Save as: ',bg='BLACK', fg='WHITE', font=("ariel 12 bold"))
         self.entryName.place(x=5, y=297)
         self.entryFileName = Entry(self.tk, width=22)
         self.entryFileName.place(x=82, y=300)
-        self.save = Button(self.tk, text='Save', width=23, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.__save)
+        self.save = Button(self.tk, text='Save', width=19, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.__save)
         self.save.place(x=5, y=320)
 
-        self.exit = Button(self.tk, text='Exit', width=23, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.tk.destroy)
+        self.exit = Button(self.tk, text='Exit', width=19, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.tk.destroy)
         self.exit.place(x=5, y=370)
 
         self.about = Button(self.tk, text='About', width=15, bg='SILVER', fg='BLUE', font=('underline'), relief=RAISED, command=self.__about)
@@ -105,7 +105,13 @@ class GUI:
         self.image.save(complete_name)
 
     def __about(self):
-        pass
+        t = Tk()
+        t.geometry('500x500')
+        t.title('About')
+        canvas = Canvas(t, width=500, height=500)
+        canvas.pack()
+        text = Label(t, text='This editor was written by sultan.bekmuratov@alatoo.edu.kg')
+        text.place(x=125, y=150)
 
 tk = Tk()
 tk.geometry("900x700")
